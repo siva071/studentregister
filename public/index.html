@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RRB NTPC Mock Test Registration - Job Alerts Telugu</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .form-input {
+            transition: all 0.3s ease;
+        }
+        .form-input:focus {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(102, 126, 234, 0.1);
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+        }
+        .loading {
+            display: none;
+        }
+        .loading.show {
+            display: inline-block;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Header -->
+    <header class="gradient-bg text-white py-6 px-4">
+        <div class="container mx-auto">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center">
+                        <span class="text-purple-600 font-bold text-xl">J</span>
+                    </div>
+                    <h1 class="text-2xl font-bold">Job Alerts Telugu</h1>
+                </div>
+                <div class="text-sm">
+                    <span class="opacity-90">RRB NTPC Mock Test Platform</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-12">
+        <div class="max-w-2xl mx-auto">
+            <!-- Registration Form Card -->
+            <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
+                <div class="gradient-bg text-white p-8 text-center">
+                    <h2 class="text-3xl font-bold mb-2">RRB NTPC Mock Test Registration</h2>
+                    <p class="opacity-90">Graduate Level & UG Level Mock Tests with Detailed Performance Analysis</p>
+                </div>
+
+                <div class="p-8">
+                    <!-- Registration Form -->
+                    <form id="registrationForm" class="space-y-4">
+                        <!-- Name Field -->
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-700 mb-2">
+                                Full Name <span class="text-red-500">*</span>
+                            </label>
+                            <input 
+                                type="text" 
+                                id="name" 
+                                name="name" 
+                                required
+                                class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                                placeholder="Enter your full name"
+                            >
+                        </div>
+
+                        <!-- Email Field -->
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700 mb-2">
+                                Email Address <span class="text-red-500">*</span>
+                            </label>
+                            <input 
+                                type="email" 
+                                id="email" 
+                                name="email" 
+                                required
+                                class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                                placeholder="Enter your email address"
+                            >
+                        </div>
+
+                        <!-- Phone Field -->
+                        <div>
+                            <label for="phone" class="block text-sm font-medium text-gray-700 mb-2">
+                                Phone Number <span class="text-red-500">*</span>
+                            </label>
+                            <input 
+                                type="tel" 
+                                id="phone" 
+                                name="phone" 
+                                required
+                                maxlength="10"
+                                class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                                placeholder="Enter your 10-digit mobile number"
+                            >
+                        </div>
+
+                        <!-- Date of Birth Field -->
+                        <div>
+                            <label for="dob" class="block text-sm font-medium text-gray-700 mb-2">
+                                Date of Birth <span class="text-red-500">*</span>
+                            </label>
+                            <input 
+                                type="text" 
+                                id="dob" 
+                                name="dob" 
+                                required
+                                class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                                placeholder="DD/MM/YYYY"
+                                maxlength="10"
+                            >
+                        </div>
+
+                        <!-- Terms Checkbox -->
+                        <div class="flex items-start">
+                            <input 
+                                type="checkbox" 
+                                id="terms" 
+                                name="terms" 
+                                required
+                                class="mt-1 h-4 w-4 text-purple-600 border-gray-300 rounded focus:ring-purple-500"
+                            >
+                            <label for="terms" class="ml-2 text-sm text-gray-600">
+                                I agree to the <a href="#" class="text-purple-600 hover:text-purple-800">Terms and Conditions</a> and <a href="#" class="text-purple-600 hover:text-purple-800">Privacy Policy</a>
+                            </label>
+                        </div>
+
+                        <!-- Security Badge -->
+                        <div class="flex items-center justify-center space-x-2 text-sm text-gray-600">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"/>
+                            </svg>
+                            <span>Secure payment via Razorpay</span>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <button 
+                            type="submit" 
+                            id="submitBtn"
+                            class="btn-primary w-full py-4 px-6 text-white font-semibold rounded-lg flex items-center justify-center space-x-2 opacity-50 cursor-not-allowed"
+                            fdprocessedid="ynbe7w"
+                            disabled
+                        >
+                            <span class="submit-text">Register & Pay ₹19</span>
+                            <div id="loadingSpinner" class="hidden">
+                                <div class="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
+                            </div>
+                        </button>
+                    </form>
+                </div>
+                
+                <!-- Payment Processing Section (Hidden Initially) -->
+                <div id="paymentProcessingSection" class="hidden">
+                    <div class="bg-blue-50 border-2 border-blue-200 rounded-2xl p-8 text-center">
+                        <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-800 mb-2">Complete Your Payment</h3>
+                        <p class="text-gray-600 mb-4">Please complete the payment below to register for RRB NTPC Mock Test.</p>
+                        
+                        <!-- Payment Details -->
+                        <div class="bg-white rounded-lg p-6 mb-6 text-left">
+                            <h4 class="font-semibold text-gray-800 mb-4">💳 Payment Details</h4>
+                            <div class="space-y-3">
+                                <div class="flex justify-between items-center">
+                                    <span class="text-gray-600">RRB NTPC Mock Test Registration</span>
+                                    <span class="font-bold text-gray-800">₹19</span>
+                                </div>
+                                <div class="border-t pt-3">
+                                    <div class="flex justify-between items-center">
+                                        <span class="text-lg font-semibold text-gray-800">Total Amount</span>
+                                        <span class="text-xl font-bold text-purple-600">₹19</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Payment Link -->
+                        <div class="bg-yellow-50 border-2 border-yellow-200 rounded-lg p-4 mb-6">
+                            <h4 class="font-semibold text-gray-800 mb-2">🔗 Payment Link</h4>
+                            <p class="text-sm text-gray-600 mb-3">Click below to complete payment:</p>
+                            <a href="https://rzp.io/rzp/fFWCnRQ5" target="_blank" class="inline-block bg-orange-500 hover:bg-orange-600 text-white font-semibold px-6 py-3 rounded-lg">
+                                Pay ₹19 Now
+                            </a>
+                        </div>
+                        
+                        <!-- Manual Payment Completion -->
+                        <div class="bg-green-50 border-2 border-green-200 rounded-lg p-4 mb-6">
+                            <h4 class="font-semibold text-gray-800 mb-2">✅ Already Paid?</h4>
+                            <p class="text-sm text-gray-600 mb-3">If you completed payment but don't see your UID, click below:</p>
+                            <button onclick="manualPaymentCompletion()" class="inline-block bg-green-600 hover:bg-green-700 text-white font-semibold px-6 py-3 rounded-lg">
+                                I've Paid - Show My UID
+                            </button>
+                        </div>
+                        
+                        <!-- UID Test Button -->
+                        <div class="bg-purple-50 border-2 border-purple-200 rounded-lg p-4 mb-6">
+                            <h4 class="font-semibold text-gray-800 mb-2">🔧 Test UID Sync</h4>
+                            <p class="text-sm text-gray-600 mb-3">Click to test if UID synchronization works:</p>
+                            <button onclick="testUidSync()" class="inline-block bg-purple-600 hover:bg-purple-700 text-white font-semibold px-6 py-3 rounded-lg">
+                                Test UID Sync
+                            </button>
+                        </div>
+                        
+                        <div class="text-left bg-gray-50 rounded-lg p-4">
+                            <h4 class="font-semibold text-gray-800 mb-2">💡 Important:</h4>
+                            <ul class="text-sm text-gray-600 space-y-1">
+                                <li>• Click the payment link above to complete payment</li>
+                                <li>• Don't close this page while paying</li>
+                                <li>• Your UID will appear here after successful payment</li>
+                                <li>• If payment completed but UID not shown, use "I've Paid" button</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Success Section (Hidden Initially) -->
+                <div id="successSection" class="hidden">
+                    <div class="bg-green-50 border-2 border-green-200 rounded-2xl p-8 text-center">
+                        <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <span class="text-green-600 text-2xl">✓</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-800 mb-2">Payment Successful!</h3>
+                        <p class="text-gray-600 mb-6">Your registration has been completed successfully.</p>
+                        <div class="bg-blue-50 border-2 border-blue-200 rounded-lg p-4 mb-6">
+                            <h4 class="font-semibold text-blue-800 mb-2">📧 What's Next?</h4>
+                            <ul class="text-sm text-blue-700 space-y-1 text-left">
+                                <li>• Check your email for login details and UID</li>
+                                <li>• Your UID has been generated and saved in our system</li>
+                                <li>• Mock test access details will be sent shortly</li>
+                            </ul>
+                        </div>
+                        <button onclick="location.reload()" class="btn-primary px-6 py-3 text-white rounded-lg">
+                            Register Another Student
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Payment Failed Section (Hidden Initially) -->
+                <div id="paymentFailedSection" class="hidden">
+                    <div class="bg-red-50 border-2 border-red-200 rounded-2xl p-8 text-center">
+                        <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <span class="text-red-600 text-2xl">✕</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-800 mb-2">Payment Failed</h3>
+                        <p class="text-gray-600 mb-4">We couldn't complete your payment registration.</p>
+                        <div class="bg-white rounded-lg p-4 mb-6">
+                            <p class="text-sm text-gray-500 mb-2">What happened?</p>
+                            <p class="text-red-600 font-medium">Payment was not completed or verification failed</p>
+                        </div>
+                        <div class="text-left bg-yellow-50 rounded-lg p-4 mb-6">
+                            <h4 class="font-semibold text-gray-800 mb-2">🔧 What to do:</h4>
+                            <ul class="text-sm text-gray-600 space-y-1">
+                                <li>• Try the payment again</li>
+                                <li>• Check if payment was deducted</li>
+                                <li>• Contact support if issue persists</li>
+                            </ul>
+                        </div>
+                        <button onclick="location.reload()" class="bg-red-600 hover:bg-red-700 px-6 py-3 text-white rounded-lg">
+                            Try Again
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Success Modal -->
+    <div id="successModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+        <div class="bg-white rounded-2xl p-8 max-w-md mx-4 text-center">
+            <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span class="text-green-600 text-2xl">✓</span>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-800 mb-2">Registration Successful!</h3>
+            <p class="text-gray-600 mb-6">Your UID: <span id="userUID" class="font-bold text-purple-600"></span></p>
+            <button onclick="closeModal()" class="btn-primary px-6 py-3 text-white rounded-lg">
+                Got it!
+            </button>
+        </div>
+    </div>
+
+    <script src="script.js?v=34&t=1709123456820&manual-data-capture=true"></script>
+</body>
+</html>
+ 
