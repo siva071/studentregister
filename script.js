@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', function() {
             submitBtn.disabled = false;
             submitBtn.classList.remove('opacity-50', 'cursor-not-allowed');
             submitBtn.onclick = function() {
-                window.location.href = 'https://rzp.io/rzp/hoLCfCC';
+                payNow();
                 return false;
             };
         } else {
@@ -84,6 +84,36 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         return isValid;
+    }
+
+    // Pay Now function
+    async function payNow() {
+        try {
+            const res = await fetch("/create-order", { method: "POST" });
+            const order = await res.json();
+
+            const options = {
+                key: "rzp_live_xxxxx",
+                amount: order.amount,
+                currency: "INR",
+                order_id: order.id,
+                handler: async function (response) {
+                    await fetch("/verify-payment", {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify(response),
+                    });
+                    alert("Payment Successful");
+                },
+            };
+
+            const rzp = new Razorpay(options);
+            rzp.open();
+            
+        } catch (error) {
+            console.error('Payment error:', error);
+            alert('Payment failed. Please try again.');
+        }
     }
 
     // Show error message and red border
@@ -203,61 +233,10 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
         
-        // Generate UID and store it
-        const uid = Date.now().toString();
-        localStorage.setItem('registration_uid', uid);
-        localStorage.setItem('registration_data', JSON.stringify(formData));
-        
-        console.log('🔢 Generated UID:', uid);
-        console.log('📋 Form data:', formData);
-        
-        // Show loading state
         submitBtn.disabled = true;
-        loadingSpinner.classList.add('show');
-        
-        try {
-            // Create Razorpay payment link with customer data and UID
-            const amount = getPaymentAmount();
-            const amountText = getPaymentAmountText();
-            console.log(`🔗 Creating Razorpay payment link with ${amountText} payment...`);
-            
-            const response = await fetch('/api/payment/create-order', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ 
-                    amount: amount, 
-                    currency: 'INR', 
-                    receipt: 'receipt_' + uid,
-                    notes: {
-                        ...formData,
-                        uid: uid,  // Include UID in Razorpay notes
-                        paymentType: document.querySelector('input[name="paymentType"]:checked').value,
-                        amount: amountText
-                    }
-                })
-            });
-            
-            const orderData = await response.json();
-            
-            if (orderData.error) {
-                alert(orderData.error);
-                submitBtn.disabled = false;
-                loadingSpinner.classList.remove('show');
-                isSubmitting = false;
-                return;
-            }
-            
-            console.log('✅ Payment link created:', orderData);
-            
-            // Check if we need to show payment processing
-            const urlParams = new URLSearchParams(window.location.search);
-            const paymentId = urlParams.get('payment_id');
-            
-            if (paymentId) {
-                console.log('🔄 Payment detected, monitoring status...');
-                document.getElementById('registrationForm').style.display = 'none';
+        submitBtn.classList.add('opacity-50', 'cursor-not-allowed');
+        submitBtn.onclick = null;
+    }
                 document.getElementById('paymentProcessingSection').classList.remove('hidden');
                 monitorPaymentStatus(paymentId);
             }

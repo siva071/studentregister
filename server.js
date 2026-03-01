@@ -1,23 +1,17 @@
 const express = require("express");
 const Razorpay = require("razorpay");
 const crypto = require("crypto");
-const cors = require('cors');
-const path = require('path');
-const fetch = require('node-fetch');
-require('dotenv').config();
+const fetch = require("node-fetch");
 
 const app = express();
-const PORT = process.env.PORT || 3000;
-
-// Middleware
-app.use(cors());
 app.use(express.json());
-app.use(express.static('public'));
+
+const PORT = process.env.PORT || 3000;
 
 // Initialize Razorpay
 const razorpay = new Razorpay({
-  key_id: process.env.RAZORPAY_KEY_ID || 'rzp_test_1234567890abcdef',
-  key_secret: process.env.RAZORPAY_KEY_SECRET || 'rzp_test_1234567890abcdef',
+  key_id: process.env.RAZORPAY_KEY_ID,
+  key_secret: process.env.RAZORPAY_KEY_SECRET,
 });
 
 // Create Order (₹1 default)
@@ -45,7 +39,7 @@ app.post("/verify-payment", (req, res) => {
   const body = razorpay_order_id + "|" + razorpay_payment_id;
 
   const expectedSignature = crypto
-    .createHmac("sha256", process.env.RAZORPAY_KEY_SECRET || 'rzp_test_1234567890abcdef')
+    .createHmac("sha256", process.env.RAZORPAY_KEY_SECRET)
     .update(body)
     .digest("hex");
 
@@ -149,4 +143,4 @@ app.post("/webhook/razorpay", (req, res) => {
   });
 });
 
-app.listen(PORT, () => console.log("Server running on port " + PORT));
+app.listen(PORT, () => console.log("Server running"));
