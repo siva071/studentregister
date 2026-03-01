@@ -74,8 +74,7 @@ document.addEventListener('DOMContentLoaded', function() {
             submitBtn.disabled = false;
             submitBtn.classList.remove('opacity-50', 'cursor-not-allowed');
             submitBtn.onclick = function() {
-                // Create proper Razorpay order with correct description
-                createRazorpayOrder();
+                window.location.href = 'https://rzp.io/rzp/hoLCfCC';
                 return false;
             };
         } else {
@@ -85,52 +84,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         return isValid;
-    }
-
-    // Create proper Razorpay order with correct description
-    function createRazorpayOrder() {
-        const formData = getFormData();
-        
-        // Generate UID
-        const uid = Date.now().toString();
-        localStorage.setItem('registration_uid', uid);
-        
-        // Create Razorpay options with correct description
-        const options = {
-            key: 'rzp_test_1234567890abcdef', // Replace with your actual key
-            amount: 1900, // ₹19 in paise
-            currency: 'INR',
-            name: 'RRB NTPC Mock Test Registration',
-            description: 'RRB NTPC Graduate Level & UG Level Mock Tests Registration',
-            image: 'https://example.com/logo.png', // Add your logo if needed
-            prefill: {
-                name: formData.name,
-                email: formData.email,
-                contact: formData.phone
-            },
-            notes: {
-                uid: uid,
-                name: formData.name,
-                email: formData.email,
-                phone: formData.phone,
-                dob: formData.dob,
-                registration_type: 'RRB_NTPC_MOCK_TEST'
-            },
-            theme: {
-                color: '#6366f1'
-            },
-            handler: function (response) {
-                // Handle successful payment
-                console.log('Payment successful:', response);
-                window.location.href = `/success.html?payment_id=${response.razorpay_payment_id}&uid=${uid}`;
-            }
-        };
-        
-        // Create Razorpay instance
-        const rzp = new Razorpay(options);
-        
-        // Open Razorpay payment modal
-        rzp.open();
     }
 
     // Show error message and red border
